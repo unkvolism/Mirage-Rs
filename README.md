@@ -4,6 +4,11 @@ Mirage-Rs is a Rust-based reimplementation of the Mirage technique, leveraging V
 
 This project demonstrates how sensitive data (such as shellcode) can be encrypted ("sealed") inside a VTL1 enclave and later decrypted ("unsealed") into VTL0 memory for execution, effectively bypassing traditional memory inspection and detection mechanisms.
 
+
+<p align="center">
+  <img src="https://i.imgur.com/BJnOW6b.png" alt="pic" width="600"/>
+</p>
+
 ---
 
 ## Overview
