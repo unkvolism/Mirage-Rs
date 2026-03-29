@@ -6,7 +6,7 @@ This project demonstrates how sensitive data (such as shellcode) can be encrypte
 
 
 <p align="center">
-  <img src="https://i.imgur.com/BJnOW6b.png" alt="pic" width="600"/>
+  <img src="https://i.imgur.com/BJnOW6b.png" alt="pic" width="100%"/>
 </p>
 
 ---
