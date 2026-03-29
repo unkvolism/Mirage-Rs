@@ -26,12 +26,12 @@ struct ENCLAVE_INIT_INFO_VBS {
 }
 
 #[repr(C)]
-struct PrefsInit {
+struct prefs_init {
     init_name: *mut u8,
 }
 
 #[repr(C)]
-struct SealArgs {
+struct seal_args {
     config_ll: InitTag,
     data_to_seal: *mut u8,
     protected_blob: *mut u8,
@@ -40,7 +40,7 @@ struct SealArgs {
 }
 
 #[repr(C)]
-struct UnsealArgs {
+struct unseal_args {
     config_ll: InitTag,
     protected_blob: *mut u8,
     unsealed_data: *mut u8,
@@ -218,7 +218,7 @@ unsafe fn initialize_vulnerable_enclave(enclave: PVOID) -> InitTag {
     );
 
     let mut init_name = *b"testtest\0";
-    let mut init_args = PrefsInit {
+    let mut init_args = prefs_init {
         init_name: init_name.as_mut_ptr(),
     };
 
@@ -241,7 +241,7 @@ unsafe fn enclave_seal_wrapper(
 ) -> DWORD {
     let seal_function = get_enclave_proc(enclave, "SealSettings");
 
-    let mut seal_args = SealArgs {
+    let mut seal_args = seal_args {
         config_ll: llconfig,
         data_to_seal: data.as_mut_ptr(),
         protected_blob: ptr::null_mut(),
@@ -278,7 +278,7 @@ unsafe fn enclave_unseal_wrapper(
 ) {
     let unseal_function = get_enclave_proc(enclave, "UnsealSettings");
 
-    let mut unseal_args = UnsealArgs {
+    let mut unseal_args = unseal_args {
         config_ll: llconfig,
         protected_blob: sealed_address,
         unsealed_data: unseal_address as *mut u8,
